@@ -36,7 +36,6 @@ for idx, x in enumerate(x):
 
 plt.show()
 
-import numpy as np
 
 print('残差平方和: %.2f' % np.mean((model.predict(x) - y) ** 2))
 

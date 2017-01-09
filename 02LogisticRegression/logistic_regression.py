@@ -10,18 +10,18 @@ raw_data = urllib.request.urlopen(url)
 # 把CSV文件转化为numpy matrix
 dataset = np.loadtxt(raw_data, delimiter=",")
 # 训练集和结果
-X = dataset[0:700, 0:7]
-y = dataset[0:700, 8]
+x = dataset[:, 0:7]
+y = dataset[:, 8]
 # 数据归一化
-normalized_X = preprocessing.normalize(X)
+normalized_x = preprocessing.normalize(x)
 # 逻辑回归
 model = LogisticRegression()
 
-model.fit(normalized_X, y)
+model.fit(normalized_x, y)
 
 # 预测
 expected = y
-predicted = model.predict(normalized_X)
+predicted = model.predict(normalized_x)
 
 # 模型拟合概述
 print(metrics.classification_report(expected, predicted))
